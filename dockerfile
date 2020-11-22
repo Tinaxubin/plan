@@ -4,6 +4,11 @@ WORKDIR /usr/src/nodejs/
 COPY package.json /usr/src/app/package.json
 RUN cd /usr/src/app/
 RUN npm i
-COPY ./ /usr/src/nodejs/
+COPY ./ /var/plan/
 EXPOSE 3000
-CMD npm run dev
+
+RUN cd /var/plan/ && \
+    rm -rf node_modules && \
+    npm install --save --registry=https://registry.npm.taobao.org
+RUN mkdir /var/logs
+CMD ["node","/var/plan/bin/www"]

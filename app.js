@@ -4,6 +4,9 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+console.log('服务已经启动')
+console.log('当前分支：', process.env.NODE_ENV)
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
@@ -35,7 +38,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.send(false);
 });
 
 module.exports = app;
