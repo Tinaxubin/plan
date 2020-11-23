@@ -11,4 +11,5 @@ RUN cd /var/plan/ && \
     rm -rf node_modules && \
     npm install --save --registry=https://registry.npm.taobao.org
 RUN mkdir /var/logs
+RUN cnpm install
 CMD ["node","/var/plan/bin/www"]
