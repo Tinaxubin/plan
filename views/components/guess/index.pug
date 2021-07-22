@@ -1,0 +1,16 @@
+extends ../../Layout.pug
+
+block content
+  #index
+    include ./com.pug
+    h1= title
+    div {{nextCount}}
+    +textCon()
+  script.
+      new Vue({
+        el: '#index',
+        data: {
+          count: 1,
+          nextCount: 234
+        }
+      })
